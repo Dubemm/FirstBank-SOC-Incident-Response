@@ -1,0 +1,74 @@
+============================================================
+FIRSTBANK NIGERIA - INCIDENT RESPONSE REPORT
+============================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Attacker IP  : 212.155.220.211
+Entry Point  : unknown
+
+ATTACK TIMELINE
+----------------------------------------
+  2026-02-20 22:05:31+00:00  212.155.220.211 - - [20/Feb/2026:23:05:31 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:05:58+00:00  212.155.220.211 - - [20/Feb/2026:23:05:58 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:06:13+00:00  212.155.220.211 - - [20/Feb/2026:23:06:13 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:06:29+00:00  212.155.220.211 - - [20/Feb/2026:23:06:29 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:06:58+00:00  212.155.220.211 - - [20/Feb/2026:23:06:58 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:07:24+00:00  212.155.220.211 - - [20/Feb/2026:23:07:24 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:07:39+00:00  212.155.220.211 - - [20/Feb/2026:23:07:39 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:08:07+00:00  212.155.220.211 - - [20/Feb/2026:23:08:07 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:08:24+00:00  212.155.220.211 - - [20/Feb/2026:23:08:24 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:08:39+00:00  212.155.220.211 - - [20/Feb/2026:23:08:39 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:08:54+00:00  212.155.220.211 - - [20/Feb/2026:23:08:54 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:09:08+00:00  212.155.220.211 - - [20/Feb/2026:23:09:08 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:09:37+00:00  212.155.220.211 - - [20/Feb/2026:23:09:37 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:10:01+00:00  212.155.220.211 - - [20/Feb/2026:23:10:01 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:10:30+00:00  212.155.220.211 - - [20/Feb/2026:23:10:30 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:10:51+00:00  212.155.220.211 - - [20/Feb/2026:23:10:51 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:11:15+00:00  212.155.220.211 - - [20/Feb/2026:23:11:15 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:11:22+00:00  212.155.220.211 - - [20/Feb/2026:23:11:22 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:11:47+00:00  212.155.220.211 - - [20/Feb/2026:23:11:47 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:11:59+00:00  212.155.220.211 - - [20/Feb/2026:23:11:59 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:12:10+00:00  212.155.220.211 - - [20/Feb/2026:23:12:10 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:12:22+00:00  212.155.220.211 - - [20/Feb/2026:23:12:22 +0100] "POST /login HTTP/1.1" 401 256 "-" "sqlmap/1.7.8#stable (https://sqlmap
+  2026-02-20 22:14:55+00:00  212.155.220.211 - - [20/Feb/2026:23:14:55 +0100] "GET /login?username=%27+OR+%271%27%3D%271%27+--+&password=x HTTP/1.1" 
+  2026-02-20 22:15:40+00:00  212.155.220.211 - - [20/Feb/2026:23:15:40 +0100] "POST /login HTTP/1.1" 200 2048 "-" "sqlmap/1.7.8#stable (https://sqlma
+  2026-02-20 22:16:19+00:00  212.155.220.211 - - [20/Feb/2026:23:16:19 +0100] "GET /admin/users HTTP/1.1" 200 22307 "-" "sqlmap/1.7.8#stable (https:/
+  2026-02-20 22:16:33+00:00  212.155.220.211 - - [20/Feb/2026:23:16:33 +0100] "GET /admin/accounts HTTP/1.1" 200 19630 "-" "sqlmap/1.7.8#stable (http
+  2026-02-20 22:16:36+00:00  212.155.220.211 - - [20/Feb/2026:23:16:36 +0100] "GET /admin/export HTTP/1.1" 200 26583 "-" "sqlmap/1.7.8#stable (https:
+  2026-02-20 23:18:35+00:00  2026-02-20 23:18:35 EventCode=4648 AccountName=svc_report SourceIP=212.155.220.211 WorkstationName=WEBSVR02 TargetServer
+  2026-02-20 23:19:41+00:00  2026-02-20 23:19:41 EventCode=4624 LogonType=3 AccountName=svc_report SourceIP=10.10.2.44 WorkstationName=WEBSVR02 Targe
+  2026-02-20 23:23:58+00:00  2026-02-20 23:23:58 EventCode=4688 AccountName=svc_report NewProcessName=C:\Windows\System32\cmd.exe ParentProcess=servi
+  2026-02-20 23:24:06+00:00  2026-02-20 23:24:06 EventCode=4688 AccountName=svc_report NewProcessName=C:\Python310\python.exe CommandLine=python.exe 
+
+AFFECTED HOSTS AND RISK SCORES
+----------------------------------------
+  10.10.10.56         score=97.9
+  10.10.3.33          score=93.8
+  10.10.1.69          score=85.2
+  10.10.7.69          score=82.2
+  10.10.9.181         score=78.9
+  10.10.6.216         score=78.6
+  10.10.2.233         score=78.6
+  10.10.9.162         score=75.6
+  10.10.8.65          score=72.6
+  10.10.3.75          score=68.2
+
+COMPROMISED ACCOUNTS
+----------------------------------------
+  NG29614790
+  NG62606065
+  NG74096588
+  NG90753180
+  NG59438959
+
+CONFIRMED COMPROMISE HOSTS
+----------------------------------------
+
+RECOMMENDATIONS
+----------------------------------------
+  1. Immediately disable the compromised service account.
+  2. Patch the SQL injection vulnerability on the web server.
+  3. Review all wire transfers during the attack window.
+  4. Reset credentials for all affected accounts.
+  5. Deploy a Web Application Firewall (WAF).

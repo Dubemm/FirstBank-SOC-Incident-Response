@@ -1,79 +1,32 @@
-# Banking SOC Incident Response Training Lab
+# FirstBank Nigeria — SOC Incident Response Lab
 
-```
-
-
-║                                                                              ║
-║  All IP addresses, account numbers, transaction records, hostnames,          ║
-║  vulnerability findings, and log entries in this repository are ENTIRELY     ║
-║  FABRICATED.  No real bank customers, employees, transactions, or live       ║
-║  systems are represented.                                                    ║
-║                                                                              ║
-║  Authorised use: defensive cybersecurity education only, within the scope    ║
-║  of the course for which this material was distributed.                      ║
-║                                                                              ║
-║  Do NOT use this material to simulate attacks against real systems.          ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-```
+A hands-on SOC (Security Operations Center) investigation simulating a real-world bank breach — from initial compromise to fraudulent wire transfers — using **Splunk** for log analysis and **Python** for automated reporting.
 
 ## Scenario
+FirstBank Nigeria's fraud-detection system flagged a cluster of unusual overnight wire transfers. As the investigating analyst, the goal was to determine how the attacker got in, how they moved through the environment, and what the full financial impact was.
 
-**"Online Banking System Compromise" - FirstBank Nigeria (simulated)**
+## Tech Stack
+- **Splunk Enterprise** (via Docker) — log ingestion and investigation
+- **Python 3** — automated analysis, risk scoring, and report generation
+- **Docker Compose** — environment orchestration
 
-On 2026-02-20, FirstBank Nigeria's overnight fraud-detection system flagged
-a cluster of large unauthorised wire transfers.  Students investigate how an
-attacker exploited a SQL injection vulnerability in the customer login form,
-performed lateral movement to the transaction server via a hijacked service
-account, and executed a bulk-transfer script during a ~2-hour overnight window.
+## Attack Chain Uncovered
+1. **Initial Access** — SQL injection attack (via `sqlmap`) against the login page, bypassing authentication
+2. **Privilege Escalation** — hijacking of an internal service account (`svc_report`)
+3. **Lateral Movement** — pivot from the public web server to the core transaction server via a network logon (Windows EventCode 4624, LogonType=3)
+4. **Impact** — execution of a fraud script (`bulk_transfer.py`) issuing 5 unauthorized wire transfers totaling NGN 12,491,436.99
 
-## Repository Structure
+## What's in This Repo
+- `student/analysis.py` — Python script that parses Nessus vulnerability data and Splunk exports, calculates host risk scores, and auto-generates an incident report
+- `student/incident_report.txt` — auto-generated technical findings report
+- `student/project_screenshot/` — Splunk investigation evidence (SPL queries + results)
+- `student/Report.pdf` — full written incident response report for a C-suite audience, covering executive summary, customer impact, Nigerian regulatory obligations (CBN, BOFIA, NDPA), and remediation recommendations
 
-```
-banking-soc-project/
-├── docker-compose.yml          # Splunk + log-generator orchestration
-├── .env.example                # Copy to .env; set STUDENT_SEED + SPLUNK_PASSWORD
-├── data-generator/
-│   ├── generate_logs.py        # Seeded synthetic log generator
-│   └── Dockerfile
-├── splunk/
-│   └── banking_soc/            # Splunk app (inputs.conf, props.conf)
-└── student/
-    ├── README.md               # ← Student start here
-    ├── analysis.py             # Skeleton for students to complete
-    └── requirements.txt
-```
+## Key Skills Demonstrated
+- SPL (Splunk Search Processing Language) query writing and log correlation across multiple sources (web, Windows auth, transaction logs)
+- Python scripting for security data analysis
+- Incident timeline reconstruction
+- Risk scoring methodology (CVSS-based)
+- Regulatory/compliance reporting (Nigerian financial sector)
 
-## Quick Start (Students)
-
-See **`student/README.md`** for full instructions.
-
-```bash
-cp .env.example .env          # set STUDENT_SEED and SPLUNK_PASSWORD
-docker compose up --build     # generates logs + starts Splunk
-# Open http://localhost:8000 after ~90 s
-```
-
-## Data Sources
-
-| File | Description |
-|------|-------------|
-| `web_access.log` | Apache Combined Log - includes SQLi attack |
-| `transaction.log` | Core banking transactions - includes fraudulent transfers |
-| `windows_auth.log` | Windows Security Events - lateral movement + script exec |
-| `nessus_scan.csv` | Static Nessus export - 10 hosts, one with SQLi-relevant CVE |
-
-Each student's dataset is unique (seeded).  The entry-point host in
-`nessus_scan.csv`, the attacker IP in `web_access.log`, and the confirmed-
-compromise host flagged by `analysis.py` all refer to the same host - this
-chain holds for every seed.
-
-## Technology Stack
-
-- **Splunk Enterprise 9.3.2** (free licence, ≤500 MB/day) - log analysis
-- **Python 3.10+** - student analysis script
-- **Docker Compose** - reproducible per-student environment
-
-## Licence
-
-This material is provided for authorised educational use only.  All synthetic
-data is generated at runtime and is not stored in the repository.
+> **Note:** All data in this project is synthetic, generated for cybersecurity training purposes only. No real individuals, accounts, or institutions are represented.
